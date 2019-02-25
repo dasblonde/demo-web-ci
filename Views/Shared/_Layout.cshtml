@@ -1,0 +1,158 @@
+﻿@using Microsoft.ApplicationInsights.Extensibility
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Contoso Neuro 2017 Conference </title>
+    <link rel="image_src" type="image/gif" href="https://techintersection.com/images/Contoso Neuro 2016_2015_banner.gif" />
+
+
+    <link rel="shortcut icon" href="~/images/favicon.ico" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Contoso Neuro 2017</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="~/css/app.css" />
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
+            <link rel="stylesheet" href="~/css/site.css"/>*@
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="~/css/app.css" />
+        @*<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>*@
+    </environment>
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+
+<body itemscope itemtype="http://data-vocabulary.org/Event" class="f-topbar-fixed">
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+
+            <!-- Off Canvas Menu -->
+            <aside class="right-off-canvas-menu">
+                <ul class="off-canvas-list">
+                    <li class=""><a href="speakers.html">Speakers</a></li>
+                    <li class=""><a href="sessions.html">Sessions</a></li>
+                </ul>
+            </aside>
+            <div class="contain-to-grid sticky show-for-small-up fixed">
+                <nav id="top-bar" data-topbar class="top-bar" role="navigation" data-options="sticky_on: small-up">
+                    <ul class="title-area">
+                        <li class="name">
+                            <h1 class="contosoevents">
+                                <a href="/">Contoso Neuro 2017 Conference</a>
+                            </h1>
+                        </li>
+                        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                    </ul>
+                    <section class="top-bar-section">
+                        <!-- Right Nav Section -->
+                        <section id="mobile-nav" class="right-small show-for-medium-down">
+                            <a class="right-off-canvas-toggle menu-icon" href="#"><span class=""></span></a>
+                        </section>
+                        <ul id="desktop-nav" class="right buttons show-for-large-up">
+                            <li class=""><a  asp-area="" asp-controller="Speakers" asp-action="Index">Speakers</a></li>
+                            <li class=""><a  asp-area="" asp-controller="Sessions" asp-action="Index">Sessions</a></li>
+                        </ul>
+                    </section>
+                </nav>
+            </div>
+            <div class="hero large-4 hero-panel">
+                <div class="row">
+                    <h1>
+                        SEPTEMBER <span class="highlight">14-17,</span> 2017
+                    </h1>
+                    <p>Monterey Conference Center
+                    <p>
+                    <p>Monterey, California
+                    <p>
+                        <!--<p style="font-size: 40px; color: #fff; text-shadow: -1px 1px 2px rgba(150, 150, 150, 1); padding: 120px;">October 22-28<br>at Super Fancy Hotel</p>-->
+                </div>
+            </div>
+            <hr style="padding: 0; margin: 0;" />
+            <div class="contentband autosize alt-color2" style="text-align: center;">
+                @RenderBody()
+            </div>
+            <div class="footer contentband">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <ul style="margin-bottom: 0;">
+                            <li>Copyright &copy; 2017 Contoso Neuro 2017. All rights reserved.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+    @RenderSection("scripts", required: false)
+</body>
+
+@*<body itemscope itemtype="http://data-vocabulary.org/Event" class="f-topbar-fixed">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">WebApp</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2016 - WebApp</p>
+            </footer>
+        </div>
+
+        <environment names="Development">
+                <script src="~/lib/jquery/dist/jquery.js"></script>
+                <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+                <script src="~/js/site.js" asp-append-version="true"></script>
+            </environment>
+            <environment names="Staging,Production">
+                <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                        asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                        asp-fallback-test="window.jQuery">
+                </script>
+                <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                        asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                        asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+                </script>
+                <script src="~/js/site.min.js" asp-append-version="true"></script>
+            </environment>
+    </body>*@
+</html>

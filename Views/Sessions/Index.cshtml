@@ -1,0 +1,30 @@
+﻿@using WebApp.Models;
+@model IEnumerable<SessionModel>
+
+@{
+}
+<div class="row">
+    <div class="small-12 large-12">
+        <h1 class="page-title"><span class="header-icon sessions" style="text-indent: 0px">9</span>SESSIONS</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 large-12 column band-panel center">
+
+        <ul id="session-list" class="session-list-detailed">
+            @foreach (var session in Model)
+            {
+                <li>
+                <h1>@session.Title</h1>
+                    <h2>
+                        @session.SpeakerNames.Aggregate((a,b)=>a+" - "+b)
+                    </h2>
+
+                    <p class="abstract">@session.Abstract</p>
+                </li>
+            }
+        </ul>
+
+    </div>
+</div>

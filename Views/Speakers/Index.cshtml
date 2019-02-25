@@ -1,0 +1,43 @@
+﻿@using WebApp.Models;
+@model IEnumerable<SpeakersModel>
+
+<div class="row">
+    <div class="small-12 large-12">
+        <h1 class="page-title"><span class="header-icon workshops" style="text-indent: 0em">O</span>speakers</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="small-12 large-12 column band-panel center">
+        <ul id="speakers-list" class="speakers-list">
+            @foreach (var speaker in Model)
+            {
+                <li>
+                    @if (!string.IsNullOrEmpty(speaker.Photo))
+                    {
+                        <div>
+                            <img src="/images/@speaker.Photo" />
+                        </div>
+                    }
+                    
+                    <h1>
+                        <a>
+                            @speaker.First @speaker.Last
+                        </a>
+                    </h1>
+                    <h2>
+                        @speaker.Title
+                        @if (!string.IsNullOrEmpty(speaker.Title) && !string.IsNullOrEmpty(speaker.Company))
+                        {
+                            <span>|</span>
+                        }
+                        @speaker.Company
+                    </h2>
+                    <p class="abstract">@speaker.Bio</p>
+
+                    <div style="clear: both;"></div>
+                </li>
+            }
+            
+        </ul>
+    </div>
+</div>
