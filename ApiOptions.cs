@@ -11,7 +11,9 @@
         {
             get
             {
-                return BaseAddress + "/api/speakers";
+                //TODO: restore next line
+                //return BaseAddress + "/api/speakers";
+                return "/api/speakers";
             }
         }
 
